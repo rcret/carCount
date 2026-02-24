@@ -1,0 +1,31 @@
+# Lane geometry configuration example
+# All coordinates are in pixels relative to the camera frame.
+# Adjust to match your actual camera resolution and lane positions.
+
+# Counting direction:
+#   "any"      – count vehicles crossing in either direction
+#   "positive" – count only when the signed cross-product changes from negative to positive
+#                (roughly: downward / increasing-y crossing)
+#   "negative" – count only upward / decreasing-y crossings
+direction: "any"
+
+# Lane 1 polygon – list of [x, y] points forming a closed polygon
+lane1_polygon:
+  - [0,   0]
+  - [960, 0]
+  - [960, 360]
+  - [0,   360]
+
+# Lane 2 polygon
+lane2_polygon:
+  - [0,   360]
+  - [960, 360]
+  - [960, 720]
+  - [0,   720]
+
+# Counting line – two points [[x1,y1],[x2,y2]]
+# Vehicles are counted when their bottom-center crosses this line
+# in the configured direction while inside a lane polygon.
+counting_line:
+  - [0,   360]
+  - [960, 360]
